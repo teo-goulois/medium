@@ -31,6 +31,7 @@ export default async function handler(
       const response = await uploadImage(file as FileFormdiable);
       const upload = response.upload;
       const result = await upload.promise();
+      
       res.status(200).json({ url: result.Location });
     } catch (e: unknown) {
       let error = (e as Error).message;
